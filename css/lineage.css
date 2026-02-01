@@ -1,0 +1,619 @@
+/* Lineage Page Specific Styles */
+
+/* Hero Section */
+.lineage-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Hero background image */
+.lineage-hero .hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: -2;
+}
+
+/* Dark overlay */
+.lineage-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .lineage-hero {
+        min-height: 400px;
+        height: auto;
+        padding: calc(70px + var(--spacing-xl)) var(--spacing-sm) var(--spacing-xl);
+    }
+}
+
+.lineage-hero .hero-content {
+    text-align: center;
+    color: var(--pure-white);
+    max-width: 800px;
+    margin: 0 auto;
+    /* Animation handled by GSAP in animations.js */
+}
+
+.lineage-hero h1 {
+    color: var(--pure-white);
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin-bottom: var(--spacing-md);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
+.lineage-hero .hero-tagline {
+    color: var(--accent-red);
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-family: var(--font-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.lineage-hero .hero-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Timeline Section */
+.timeline-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(180deg, var(--pure-white) 0%, var(--light-gray) 100%);
+}
+
+.timeline-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl) auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.timeline-intro h2 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-black);
+}
+
+.timeline-intro p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--dark-gray);
+}
+
+/* ==========================================
+   FLOWING LINEAGE TIMELINE - Mobile First
+   ========================================== */
+
+.lineage-flow {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+    padding-left: 40px; /* Space for the line on mobile */
+}
+
+/* The flowing vertical line */
+.flow-line {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(
+        180deg,
+        var(--accent-red) 0%,
+        var(--accent-red) 25%,
+        #1a2a1a 50%,
+        #1a1a2a 75%,
+        var(--accent-red) 100%
+    );
+    border-radius: 2px;
+}
+
+/* Timeline item */
+.flow-item {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+}
+
+.flow-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Marker dot on the line */
+.flow-marker {
+    position: absolute;
+    left: -33px;
+    top: 24px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--pure-white);
+    border: 4px solid var(--accent-red);
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flow-marker.founder {
+    border-color: #2c1810;
+    background: #2c1810;
+}
+
+.flow-marker.shihan {
+    border-color: #1a2a1a;
+    background: #1a2a1a;
+}
+
+.flow-marker.sensei {
+    border-color: #1a1a2a;
+    background: #1a1a2a;
+}
+
+.flow-marker.current {
+    border-color: var(--accent-red);
+    background: var(--accent-red);
+    box-shadow: 0 0 0 4px rgba(204, 51, 51, 0.3);
+    animation: pulse-marker 2s infinite;
+}
+
+@keyframes pulse-marker {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(204, 51, 51, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(204, 51, 51, 0.1);
+    }
+}
+
+/* Card styling */
+.flow-card {
+    background: var(--pure-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: var(--spacing-md);
+    border-left: 4px solid var(--accent-red);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flow-item:hover .flow-card {
+    transform: translateX(4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.flow-item:hover .flow-marker {
+    transform: scale(1.2);
+}
+
+.flow-item.current .flow-card {
+    border-left-color: var(--accent-red);
+    box-shadow: 0 4px 20px rgba(204, 51, 51, 0.15);
+}
+
+/* Avatar */
+.flow-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-secondary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--pure-white);
+    margin-bottom: var(--spacing-sm);
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.flow-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Position adjustments for specific avatars */
+.flow-avatar.current img {
+    object-position: top;
+}
+
+.flow-avatar.founder {
+    background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+}
+
+.flow-avatar.shihan {
+    background: linear-gradient(135deg, #1a2a1a 0%, #0f1a0f 100%);
+}
+
+.flow-avatar.sensei {
+    background: linear-gradient(135deg, #1a1a2a 0%, #0f0f1a 100%);
+}
+
+.flow-avatar.current {
+    background: linear-gradient(135deg, var(--accent-red) 0%, #8a2222 100%);
+}
+
+/* Content */
+.flow-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: var(--primary-black);
+}
+
+.flow-title {
+    display: block;
+    color: var(--accent-red);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.flow-date {
+    display: inline-block;
+    background: var(--light-gray);
+    color: var(--dark-gray);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.flow-desc {
+    color: var(--dark-gray);
+    line-height: 1.7;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Badges */
+.flow-badge {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--light-gray);
+    color: var(--dark-gray);
+    border: 1px solid var(--medium-gray);
+}
+
+.flow-badge.highlight {
+    background: rgba(204, 51, 51, 0.1);
+    color: var(--accent-red);
+    border-color: var(--accent-red);
+}
+
+.flow-badge.current {
+    background: var(--accent-red);
+    color: var(--pure-white);
+    border-color: var(--accent-red);
+}
+
+/* ==========================================
+   Tablet and up (min-width: 600px)
+   ========================================== */
+@media (min-width: 600px) {
+    .timeline-section {
+        padding: var(--spacing-xxl) 0;
+    }
+
+    .timeline-intro {
+        margin-bottom: var(--spacing-xxl);
+    }
+
+    .timeline-intro p {
+        font-size: 1.1rem;
+    }
+
+    .lineage-flow {
+        padding-left: 60px;
+    }
+
+    .flow-line {
+        left: 25px;
+        width: 5px;
+    }
+
+    .flow-marker {
+        left: -43px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .flow-card {
+        padding: var(--spacing-lg);
+        display: flex;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+    }
+
+    .flow-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .flow-content {
+        flex: 1;
+    }
+
+    .flow-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .flow-title {
+        font-size: 0.95rem;
+    }
+
+    .flow-date {
+        font-size: 0.8rem;
+    }
+
+    .flow-desc {
+        font-size: 0.95rem;
+    }
+
+    .flow-badge {
+        font-size: 0.8rem;
+    }
+}
+
+/* ==========================================
+   Desktop (min-width: 900px)
+   ========================================== */
+@media (min-width: 900px) {
+    .lineage-flow {
+        padding-left: 80px;
+    }
+
+    .flow-line {
+        left: 35px;
+        width: 6px;
+    }
+
+    .flow-marker {
+        left: -53px;
+        width: 28px;
+        height: 28px;
+        border-width: 5px;
+    }
+
+    .flow-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 1.75rem;
+    }
+
+    .flow-content h3 {
+        font-size: 1.75rem;
+    }
+
+    .flow-title {
+        font-size: 1rem;
+    }
+
+    .flow-desc {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+}
+
+/* Affiliation Section */
+.affiliation-section {
+    padding: var(--spacing-xxl) 0;
+    background: var(--light-gray);
+}
+
+.affiliation-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.affiliation-content h2 {
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary-black);
+}
+
+.affiliation-info {
+    display: grid;
+    gap: var(--spacing-xl);
+}
+
+.affiliation-primary h3 {
+    color: var(--primary-black);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+.affiliation-primary p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-lg);
+}
+
+.affiliation-primary a {
+    color: var(--accent-red);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.affiliation-primary a:hover {
+    color: var(--primary-black);
+}
+
+.affiliation-badges {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.org-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background: var(--pure-white);
+    border-radius: 12px;
+    border: 2px solid var(--accent-red);
+    min-width: 200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.org-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.badge-label {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.badge-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-black);
+    margin-bottom: var(--spacing-xs);
+    text-align: center;
+}
+
+.badge-detail {
+    font-size: 0.9rem;
+    color: var(--accent-red);
+    font-weight: 500;
+}
+
+/* Mobile Responsiveness - Affiliation */
+@media (max-width: 768px) {
+    .lineage-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .lineage-hero h1 {
+        font-size: 2rem;
+    }
+
+    .lineage-hero .hero-description {
+        font-size: 1rem;
+    }
+
+    .affiliation-badges {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .org-badge {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lineage-hero {
+        height: auto;
+        min-height: 50vh;
+        padding: calc(70px + var(--spacing-lg)) 0 var(--spacing-lg) 0;
+    }
+
+    .lineage-hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .affiliation-section {
+        padding: var(--spacing-lg) 0;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .flow-card {
+        border-left-color: #000000;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .flow-badge {
+        border-color: #000000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .org-badge:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .lineage-hero {
+        height: auto;
+        background: none;
+        color: black;
+        padding: var(--spacing-md) 0;
+    }
+
+    .lineage-hero .hero-overlay,
+    .lineage-hero .hero-background {
+        display: none;
+    }
+
+    .flow-line {
+        display: none;
+    }
+
+    .flow-card {
+        box-shadow: none;
+        border: 1px solid #000;
+        page-break-inside: avoid;
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+/* Accessibility enhancements */
+.flow-card:focus-within {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 2px;
+}
+
+.org-badge:focus-within {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 2px;
+}
+
+/* Footer lineage specific */
+.lineage-footer {
+    font-style: italic;
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+}

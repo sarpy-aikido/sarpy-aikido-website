@@ -1,0 +1,751 @@
+/* About Page Specific Styles */
+
+/* Hero Section */
+.about-hero {
+    position: relative;
+    height: 75vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Hero background image */
+.about-hero .hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center -10%;
+    z-index: -2;
+}
+
+/* Dark overlay */
+.about-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: -1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 1024px) {
+    .about-hero {
+        min-height: 50vh;
+        height: auto;
+        padding: calc(70px + var(--spacing-xl)) var(--spacing-sm) var(--spacing-xl);
+    }
+
+    .about-hero .hero-bg-image {
+        object-fit: none;
+        width: auto;
+        height: auto;
+        min-width: 20%;
+        min-height: 20%;
+        transform: translate(-50%, -28%) scale(0.4);
+    }
+}
+
+.about-hero .hero-content {
+    text-align: center;
+    color: var(--pure-white);
+    max-width: 900px;
+    margin: 0 auto;
+    /* Animation handled by GSAP for smooth control */
+}
+
+.about-hero h1 {
+    color: var(--pure-white);
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin-bottom: var(--spacing-md);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
+.about-hero .hero-tagline {
+    color: var(--accent-red);
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-family: var(--font-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+.about-hero .hero-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-hero .hero-link {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    color: var(--accent-red);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.about-hero .hero-link:hover {
+    color: var(--pure-white);
+}
+
+
+/* Philosophy Section */
+.philosophy-section {
+    padding: var(--spacing-xxl) 0;
+    background: var(--light-gray);
+}
+
+.philosophy-section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary-black);
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.philosophy-card {
+    background: var(--pure-white);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--accent-red);
+    text-align: center;
+}
+
+.philosophy-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.philosophy-symbol {
+    font-size: 2.5rem;
+    color: var(--accent-red);
+    margin-bottom: var(--spacing-sm);
+    font-weight: bold;
+    display: block;
+}
+
+.philosophy-card h3 {
+    color: var(--primary-black);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.3rem;
+}
+
+.philosophy-card p {
+    color: var(--dark-gray);
+    line-height: 1.7;
+    text-align: left;
+}
+
+/* Instructors Section */
+.instructors-section {
+    padding: var(--spacing-xxl) 0;
+    background: var(--pure-white);
+}
+
+.instructors-section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary-black);
+}
+
+.instructor-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-xl);
+    background: var(--light-gray);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--spacing-xl);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instructor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.primary-instructor {
+    border-left: 6px solid var(--accent-red);
+}
+
+/* Instructor Image */
+.instructor-image {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--medium-gray) 0%, var(--dark-gray) 100%);
+}
+
+.instructor-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: grayscale(20%);
+}
+
+.instructor-card:hover .instructor-photo {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.instructor-rank {
+    position: absolute;
+    bottom: var(--spacing-md);
+    left: var(--spacing-md);
+    background: var(--accent-red);
+    color: var(--pure-white);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(204, 51, 51, 0.4);
+}
+
+/* Instructor Info */
+.instructor-info {
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.instructor-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.instructor-header h3 {
+    color: var(--primary-black);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-secondary);
+}
+
+.instructor-title {
+    color: var(--accent-red);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.instructor-credentials {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.credential {
+    background: rgba(204, 51, 51, 0.1);
+    color: var(--accent-red);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--accent-red);
+}
+
+.instructor-bio p {
+    color: var(--dark-gray);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.instructor-bio h4 {
+    color: var(--primary-black);
+    margin: var(--spacing-lg) 0 var(--spacing-sm) 0;
+    font-size: 1.1rem;
+}
+
+.instructor-bio blockquote {
+    background: var(--pure-white);
+    padding: var(--spacing-md);
+    border-left: 4px solid var(--accent-red);
+    border-radius: 4px;
+    font-style: italic;
+    color: var(--dark-gray);
+    margin: var(--spacing-md) 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.instructor-specialties ul {
+    list-style: none;
+    padding: 0;
+}
+
+.instructor-specialties li {
+    position: relative;
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+    color: var(--dark-gray);
+}
+
+.instructor-specialties li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+    font-weight: bold;
+}
+
+/* Assistant Instructors */
+.assistant-instructors {
+    margin-top: var(--spacing-xxl);
+    padding-top: var(--spacing-xl);
+    border-top: 2px solid var(--light-gray);
+}
+
+.assistant-instructors h3 {
+    color: var(--primary-black);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.community-description {
+    text-align: center;
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl) auto;
+}
+
+.instructor-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.feature-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: var(--pure-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-item h4 {
+    color: var(--primary-black);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-item p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+/* History Section */
+.history-section {
+    padding: var(--spacing-xxl) 0;
+    background: var(--light-gray);
+}
+
+.history-section h2 {
+    text-align: center;
+    color: var(--primary-black);
+    margin-bottom: var(--spacing-xl);
+}
+
+.history-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.history-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent-red) 0%, var(--medium-gray) 100%);
+}
+
+.history-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xl);
+    padding-left: 80px;
+}
+
+.history-item:last-child {
+    margin-bottom: 0;
+}
+
+.history-year {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--accent-red);
+    color: var(--pure-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 15px rgba(204, 51, 51, 0.3);
+    z-index: 2;
+}
+
+.history-description h3 {
+    color: var(--primary-black);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.history-description p {
+    color: var(--dark-gray);
+    line-height: 1.7;
+}
+
+/* Training Environment Section */
+.training-environment {
+    padding: var(--spacing-xxl) 0;
+    background: var(--pure-white);
+}
+
+.training-environment h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary-black);
+}
+
+.environment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.environment-card {
+    background: var(--light-gray);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    border-top: 4px solid var(--accent-red);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.environment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.environment-card h3 {
+    color: var(--primary-black);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.environment-card p {
+    color: var(--dark-gray);
+    line-height: 1.7;
+}
+
+/* About CTA Section */
+.about-cta {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+    color: var(--pure-white);
+}
+
+.about-cta .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-cta h2 {
+    color: var(--pure-white);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn-primary {
+    background: var(--accent-red);
+    border-color: var(--accent-red);
+}
+
+.cta-buttons .btn-primary:hover {
+    background: var(--pure-white);
+    color: var(--accent-red);
+}
+
+.cta-buttons .btn-secondary {
+    background: transparent;
+    color: var(--pure-white);
+    border-color: var(--pure-white);
+}
+
+.cta-buttons .btn-secondary:hover {
+    background: var(--pure-white);
+    color: var(--primary-black);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .about-hero {
+        height: auto;
+        min-height: auto;
+        padding: calc(70px + var(--spacing-lg)) var(--spacing-sm) var(--spacing-lg);
+    }
+
+    .about-hero .hero-content {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .about-hero h1 {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .about-hero .hero-tagline {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .about-hero .hero-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .instructor-card {
+        grid-template-columns: 1fr;
+    }
+
+    .instructor-info {
+        padding: var(--spacing-md);
+    }
+
+    .instructor-features {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .history-item {
+        padding-left: 60px;
+    }
+
+    .history-year {
+        width: 50px;
+        height: 50px;
+        font-size: 0.8rem;
+    }
+
+    .environment-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .environment-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .philosophy-section,
+    .instructors-section,
+    .history-section,
+    .training-environment,
+    .about-cta {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .instructor-credentials {
+        justify-content: center;
+    }
+
+    .feature-item {
+        padding: var(--spacing-md);
+    }
+
+    .history-timeline::before {
+        left: 25px;
+    }
+
+    .history-item {
+        padding-left: 55px;
+    }
+
+    .history-year {
+        width: 45px;
+        height: 45px;
+        font-size: 0.75rem;
+    }
+
+    .environment-card {
+        padding: var(--spacing-md);
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .philosophy-card,
+    .instructor-card,
+    .environment-card {
+        border: 2px solid #000000;
+    }
+
+    .history-year {
+        background: #000000;
+        border: 2px solid #ffffff;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    /* Ensure visibility with reduced motion */
+    .philosophy-card,
+    .instructor-card,
+    .environment-card,
+    .js-enabled .philosophy-card,
+    .js-enabled .instructor-card,
+    .js-enabled .environment-card,
+    .js-enabled .philosophy-card.visible,
+    .js-enabled .instructor-card.visible,
+    .js-enabled .environment-card.visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .philosophy-card:hover,
+    .instructor-card:hover,
+    .environment-card:hover,
+    .feature-item:hover {
+        transform: none;
+    }
+
+    .instructor-card:hover .instructor-photo {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .about-hero {
+        height: auto;
+        background: none;
+        color: black;
+    }
+
+    .instructor-card,
+    .philosophy-card,
+    .environment-card {
+        box-shadow: none;
+        border: 1px solid #000;
+        page-break-inside: avoid;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .about-cta {
+        background: none;
+        color: black;
+    }
+}
+
+/* Accessibility enhancements */
+.philosophy-card:focus-within,
+.instructor-card:focus-within,
+.environment-card:focus-within,
+.feature-item:focus-within {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 2px;
+}
+
+/* Cards - Always visible by default
+ * Animations are purely enhancement, not required for visibility.
+ */
+.philosophy-card,
+.instructor-card,
+.environment-card {
+    opacity: 1;
+    transform: none;
+}
+
+/* Subtle entrance animation when scrolled into view (optional enhancement) */
+.philosophy-card.visible,
+.instructor-card.visible,
+.environment-card.visible {
+    animation: cardFadeIn 0.6s ease-out;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0.8;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer about specific */
+.about-footer {
+    font-style: italic;
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+}

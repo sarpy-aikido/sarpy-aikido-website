@@ -1,0 +1,820 @@
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --primary-black: #1a1a1a;
+    --secondary-black: #2d2d2d;
+    --accent-red: #cc3333;
+    --pure-white: #ffffff;
+    --light-gray: #f5f5f5;
+    --medium-gray: #888888;
+    --dark-gray: #444444;
+    
+    /* Typography */
+    --font-primary: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-secondary: 'Noto Serif', Georgia, serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    --spacing-xxl: 6rem;
+    
+    /* Breakpoints */
+    --mobile: 480px;
+    --tablet: 768px;
+    --desktop: 1024px;
+    --wide: 1200px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--primary-black);
+    background-color: var(--pure-white);
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    max-width: var(--wide);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-black);
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--dark-gray);
+}
+
+/* Buttons - Mobile-First Touch Targets
+ * Minimum 44x44px touch target for accessibility (WCAG 2.1)
+ * Aikido principle: effortless control - easy to tap without frustration
+ */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all var(--transition-smooth);
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-align: center;
+    min-width: 140px;
+    min-height: 44px; /* Touch target accessibility */
+    line-height: 1.4;
+}
+
+.btn-primary {
+    background-color: var(--accent-red);
+    color: var(--pure-white);
+    border-color: var(--accent-red);
+}
+
+.btn-primary:hover {
+    background-color: var(--pure-white);
+    color: var(--accent-red);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-black);
+    border-color: var(--primary-black);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-black);
+    color: var(--pure-white);
+    transform: translateY(-2px);
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all var(--transition-smooth);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: var(--wide);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    color: var(--primary-black);
+}
+
+.logo-image {
+    height: 40px;
+    width: 40px;
+}
+
+.logo-text {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--primary-black);
+}
+
+.nav-menu {
+    display: flex;
+    gap: var(--spacing-lg);
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--primary-black);
+    font-weight: 500;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-red);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-red);
+    transition: width var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Mobile Navigation - Touch-Friendly
+ * Minimum 44x44px touch target for accessibility
+ */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px; /* Expand touch area */
+    margin: -10px; /* Offset padding visually */
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar {
+    width: 24px;
+    height: 3px;
+    background-color: var(--primary-black);
+    transition: all var(--transition-smooth);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--pure-white);
+        width: 100%;
+        text-align: center;
+        transition: left var(--transition-smooth);
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+        padding: var(--spacing-md) 0;
+        gap: 0; /* Remove gap, padding handles spacing */
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    /* Touch-friendly nav links on mobile */
+    .nav-menu .nav-link {
+        display: block;
+        padding: var(--spacing-md) var(--spacing-lg);
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--light-gray);
+    }
+
+    .nav-menu .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu .nav-link::after {
+        display: none; /* Hide underline effect on mobile */
+    }
+
+    .nav-menu .nav-link.active {
+        background-color: var(--light-gray);
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Sections */
+section {
+    padding: var(--spacing-xxl) 0;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-black);
+    color: var(--pure-white);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.footer-logo {
+    height: 40px;
+    width: 40px;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.footer-section h4 {
+    color: var(--pure-white);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-section ul li a {
+    color: var(--medium-gray);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    display: inline-block;
+    padding: var(--spacing-xs) 0; /* Increase touch target */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-section ul li a:hover {
+    color: var(--pure-white);
+}
+
+/* Ensure footer items without links also have good spacing on mobile */
+.footer-section ul li {
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--dark-gray);
+    color: var(--medium-gray);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+/* Animations and Utils */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Image Placeholder Fallbacks
+ * Styled placeholders for missing images
+ * Uses initials and subtle styling instead of broken image icons
+ * Follows aikido principle of balance - visual weight without disruption
+ */
+.image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--light-gray) 0%, #e0e0e0 100%);
+    color: var(--dark-gray);
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(204, 51, 51, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Circular placeholders for lineage photos */
+.image-placeholder.circular {
+    border-radius: 50%;
+    aspect-ratio: 1;
+}
+
+/* Lineage-specific placeholder styling */
+.lineage-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-black) 0%, var(--primary-black) 100%);
+    color: var(--pure-white);
+    font-size: 2rem;
+}
+
+.lineage-placeholder.founder {
+    background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+}
+
+.lineage-placeholder.shihan {
+    background: linear-gradient(135deg, #1a2a1a 0%, #0f1a0f 100%);
+}
+
+.lineage-placeholder.sensei {
+    background: linear-gradient(135deg, #1a1a2a 0%, #0f0f1a 100%);
+}
+
+.lineage-placeholder.current {
+    background: linear-gradient(135deg, var(--accent-red) 0%, #8a2222 100%);
+}
+
+/* Class image placeholders */
+.class-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    background: linear-gradient(135deg, var(--secondary-black) 0%, var(--primary-black) 100%);
+    color: var(--pure-white);
+    font-size: 1.2rem;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.class-placeholder .placeholder-icon {
+    font-size: 3rem;
+    opacity: 0.8;
+}
+
+.class-placeholder .placeholder-text {
+    font-size: 1rem;
+    opacity: 0.7;
+    font-family: var(--font-primary);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Instructor image placeholder */
+.instructor-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background: linear-gradient(135deg, var(--secondary-black) 0%, var(--primary-black) 100%);
+    color: var(--pure-white);
+    font-size: 4rem;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+
+/* Scroll Reveal - GSAP-Ready Initial States
+ * Elements start hidden via CSS (not JS) to prevent flash.
+ * GSAP animates them in smoothly on scroll.
+ * No-JS fallback: elements are visible (see noscript styles in HTML).
+ */
+.js-enabled .gsap-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: opacity, transform;
+}
+
+/* When GSAP marks element as revealed */
+.gsap-reveal.revealed {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+}
+
+/* Smooth transitions for all animated elements */
+.feature-card,
+.class-card,
+.philosophy-card,
+.value-card,
+.instructor-card,
+.flow-item {
+    will-change: opacity, transform;
+}
+
+/* Fallback for non-GSAP browsers */
+.reveal {
+    opacity: 1;
+    transform: none;
+}
+
+/* For users who prefer reduced motion, skip animations entirely */
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal.active,
+    .gsap-reveal {
+        animation: none;
+        opacity: 1 !important;
+        transform: none !important;
+        will-change: auto;
+    }
+}
+
+/* ===========================================
+   MOBILE CONTENT OPTIMIZATION
+   Following aikido principle: effortless control
+   Content adapts to screen size without struggle
+   =========================================== */
+
+/* Hide on mobile - use sparingly to avoid SEO impact */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Show only on mobile */
+@media (min-width: 769px) {
+    .show-mobile-only {
+        display: none !important;
+    }
+}
+
+/* Mobile text truncation - shows first 3 lines with ellipsis */
+.mobile-truncate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .mobile-truncate {
+        -webkit-line-clamp: 3;
+    }
+
+    .mobile-truncate-2 {
+        -webkit-line-clamp: 2;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-truncate,
+    .mobile-truncate-2 {
+        -webkit-line-clamp: unset;
+        display: block;
+    }
+}
+
+/* ===========================================
+   COLLAPSIBLE CONTENT PATTERN
+   Uses native <details>/<summary> for accessibility
+   Expanded on desktop, collapsed on mobile
+   =========================================== */
+
+.mobile-expandable {
+    border: none;
+    margin-top: var(--spacing-sm);
+}
+
+.mobile-expandable summary {
+    cursor: pointer;
+    color: var(--accent-red);
+    font-weight: 600;
+    padding: var(--spacing-xs) 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.mobile-expandable summary::-webkit-details-marker {
+    display: none;
+}
+
+.mobile-expandable summary::before {
+    content: '+';
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 20px;
+    text-align: center;
+    transition: transform var(--transition-fast);
+}
+
+.mobile-expandable[open] summary::before {
+    content: '−';
+}
+
+.mobile-expandable-content {
+    padding-top: var(--spacing-sm);
+}
+
+/* On desktop: show content expanded, hide toggle */
+@media (min-width: 769px) {
+    .mobile-expandable {
+        display: block;
+    }
+
+    .mobile-expandable summary {
+        display: none;
+    }
+
+    .mobile-expandable-content {
+        display: block !important;
+        padding-top: 0;
+    }
+}
+
+/* ===========================================
+   MOBILE FOOTER OPTIMIZATION
+   Hide duplicate navigation on mobile (users have sticky header)
+   =========================================== */
+
+@media (max-width: 768px) {
+    .footer-nav-section {
+        display: none;
+    }
+
+    .footer-content {
+        gap: var(--spacing-md);
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+
+    .footer-section ul li {
+        min-height: 28px;
+    }
+
+    .footer-brand p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===========================================
+   MOBILE BUTTON IMPROVEMENTS
+   Full-width buttons on small screens
+   =========================================== */
+
+@media (max-width: 480px) {
+    .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+}
+
+/* ===========================================
+   MOBILE CARD SPACING
+   Reduce padding on cards for better space usage
+   =========================================== */
+
+@media (max-width: 768px) {
+    .card-compact {
+        padding: var(--spacing-sm);
+    }
+
+    section {
+        padding: var(--spacing-xl) 0;
+    }
+}
+
+/* ===========================================
+   MOBILE STICKY CTA BAR
+   Fixed bottom bar for mobile conversion
+   =========================================== */
+
+.mobile-cta-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--primary-black);
+    padding: var(--spacing-sm);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    border-top: 2px solid var(--accent-red);
+}
+
+.mobile-cta-bar .cta-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.mobile-cta-bar .btn {
+    flex: 1;
+    text-align: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.mobile-cta-bar .btn-primary {
+    background: var(--accent-red);
+    color: var(--pure-white);
+}
+
+.mobile-cta-bar .btn-secondary {
+    background: transparent;
+    color: var(--pure-white);
+    border: 1px solid var(--pure-white);
+}
+
+/* Only show on mobile */
+@media (max-width: 768px) {
+    .mobile-cta-bar {
+        display: block;
+    }
+
+    /* Add padding to body to prevent content from being hidden behind CTA bar */
+    body {
+        padding-bottom: 70px;
+    }
+
+    /* Hide the bar when scrolled to the top (hero visible) */
+    .mobile-cta-bar.hidden {
+        transform: translateY(100%);
+        transition: transform var(--transition-smooth);
+    }
+
+    .mobile-cta-bar {
+        transition: transform var(--transition-smooth);
+    }
+}
