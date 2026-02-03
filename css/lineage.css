@@ -3,11 +3,13 @@
 /* Hero Section */
 .lineage-hero {
     position: relative;
-    height: 70vh;
-    min-height: 500px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
+    padding-top: 80px; /* Account for fixed navbar */
+    box-sizing: border-box;
 }
 
 /* Hero background image */
