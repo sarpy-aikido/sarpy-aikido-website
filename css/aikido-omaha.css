@@ -1,0 +1,188 @@
+/* Aikido in Omaha Page Specific Styles */
+
+/* Hero Section */
+.aikido-omaha-hero {
+    position: relative;
+    padding: calc(70px + var(--spacing-xxl)) 0 var(--spacing-xl);
+    background: var(--primary-black);
+    color: var(--pure-white);
+    text-align: center;
+}
+
+.aikido-omaha-hero .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* main.css sets `h1..h6 { color: var(--primary-black) }` and `p { color:
+   var(--dark-gray) }`. Those match directly, so they beat the white inherited
+   from the section. Headings and copy must be re-coloured explicitly on the
+   dark hero (same approach as .about-hero h1 in about.css). */
+.aikido-omaha-hero h1 {
+    color: var(--pure-white);
+}
+
+.aikido-omaha-hero .hero-tagline {
+    font-size: 1.25rem;
+    color: var(--accent-red);
+    margin-bottom: var(--spacing-sm);
+}
+
+.aikido-omaha-hero .hero-description {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--light-gray);
+}
+
+/* Shared section rhythm */
+.aikido-omaha-content,
+.aikido-omaha-compare,
+.aikido-omaha-faq {
+    padding: var(--spacing-xxl) 0;
+}
+
+.aikido-omaha-compare {
+    background: var(--light-gray);
+}
+
+.aikido-omaha-content h2,
+.aikido-omaha-compare h2,
+.aikido-omaha-faq h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.section-intro {
+    max-width: 760px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+    color: var(--dark-gray);
+}
+
+.directions-note {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+/* main.css defines no global `a` rule, so in-body links fall back to the
+   browser default blue. Match the red treatment used for content links
+   elsewhere on the site (see .feature-card a in index.css). */
+.directions-note a,
+.faq-item a {
+    color: var(--accent-red);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.directions-note a:hover,
+.faq-item a:hover {
+    color: var(--primary-black);
+}
+
+/* Directions from Omaha */
+.directions-grid,
+.compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.direction-card,
+.compare-card {
+    background: var(--pure-white);
+    border-left: 3px solid var(--accent-red);
+    padding: var(--spacing-md);
+    transition: transform var(--transition-smooth);
+}
+
+.direction-card {
+    background: var(--light-gray);
+}
+
+.direction-card:hover,
+.compare-card:hover {
+    transform: translateY(-4px);
+}
+
+.direction-card h3,
+.compare-card h3 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.15rem;
+}
+
+/* Class times */
+.schedule-list {
+    max-width: 760px;
+    margin: 0 auto;
+    border-top: 1px solid var(--medium-gray);
+}
+
+.schedule-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.schedule-name {
+    flex: 1 1 30%;
+    font-weight: 600;
+}
+
+.schedule-time {
+    flex: 1 1 40%;
+}
+
+.schedule-note {
+    flex: 1 1 25%;
+    text-align: right;
+    color: var(--accent-red);
+    font-size: 0.9rem;
+}
+
+/* FAQ */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1rem;
+}
+
+/* Call to Action */
+.aikido-omaha-cta {
+    padding: var(--spacing-xl) 0;
+    background: var(--light-gray);
+    text-align: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .aikido-omaha-hero {
+        padding: calc(70px + var(--spacing-xl)) 0 var(--spacing-lg);
+    }
+
+    .aikido-omaha-content,
+    .aikido-omaha-compare,
+    .aikido-omaha-faq {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .schedule-note {
+        text-align: left;
+    }
+}
