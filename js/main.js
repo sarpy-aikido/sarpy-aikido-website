@@ -89,16 +89,15 @@ class AikidoEdge {
     }
 
     setActiveNavLink() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const currentPage = window.location.pathname.split('/').pop();
+        const isHome = currentPage === '' || currentPage === 'index.html';
         const navLinks = document.querySelectorAll('.nav-link');
-        
+
         navLinks.forEach(link => {
             link.classList.remove('active');
             const linkHref = link.getAttribute('href');
-            
-            if (linkHref === currentPage || 
-                (currentPage === '' && linkHref === 'index.html') ||
-                (currentPage === '/' && linkHref === 'index.html')) {
+
+            if (linkHref === currentPage || (isHome && linkHref === '/')) {
                 link.classList.add('active');
             }
         });
