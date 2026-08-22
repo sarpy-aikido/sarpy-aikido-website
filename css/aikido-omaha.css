@@ -68,7 +68,8 @@
    browser default blue. Match the red treatment used for content links
    elsewhere on the site (see .feature-card a in index.css). */
 .directions-note a,
-.faq-item a {
+.faq-item a,
+.compare-card a {
     color: var(--accent-red);
     text-decoration: none;
     font-weight: 500;
@@ -76,7 +77,8 @@
 }
 
 .directions-note a:hover,
-.faq-item a:hover {
+.faq-item a:hover,
+.compare-card a:hover {
     color: var(--primary-black);
 }
 
