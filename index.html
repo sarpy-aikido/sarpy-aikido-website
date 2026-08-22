@@ -43,6 +43,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif:wght@400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Preload the hero background image: it is set in index.css, so the browser
+         would otherwise only discover it after the stylesheets parse (LCP on mobile). -->
+    <link rel="preload" as="image" href="assets/images/aikido-training-flip.jpg" fetchpriority="high">
+
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
