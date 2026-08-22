@@ -749,3 +749,17 @@
     color: var(--medium-gray);
     font-size: 0.9rem;
 }
+/* Inline links in body copy - matches the .feature-card a treatment on the home page */
+.environment-card p a,
+.history-description p a {
+    color: var(--accent-red);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.environment-card p a:hover,
+.history-description p a:hover {
+    color: var(--primary-black);
+    text-decoration: underline;
+}

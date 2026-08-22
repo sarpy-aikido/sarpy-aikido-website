@@ -523,3 +523,19 @@ html:not(.js-enabled) .hero-logo {
         animation: none;
     }
 }
+/* Inline links in body copy - matches the .feature-card a treatment */
+.class-card p a,
+.instructor-preview p a,
+.location-info p a {
+    color: var(--accent-red);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.class-card p a:hover,
+.instructor-preview p a:hover,
+.location-info p a:hover {
+    color: var(--primary-black);
+    text-decoration: underline;
+}
