@@ -470,6 +470,29 @@
         </div>
     </section>
 
+    <!-- Frequently Asked Questions -->
+    <section class="training-info">
+        <div class="container">
+            <h2>Common Questions About Our Classes</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Do I need martial arts experience to join?</h3>
+                    <p>No prior martial arts experience is necessary. Our Fundamentals Classes are built for beginners and for anyone new to aikido, and we welcome students of every background and experience level.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>What should I wear to my first class?</h3>
+                    <p>Comfortable, loose-fitting athletic clothing is all you need for your first class. As you progress in your training you will have the option to purchase a traditional gi (uniform).</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>What is the weekly class schedule?</h3>
+                    <p>Fundamentals Classes run Monday and Thursday from 6:00 to 7:00 PM. Advanced Classes run Monday and Thursday from 7:00 to 8:30 PM. Saturday Open Mats run from 9:00 to 11:00 AM and are open to any skill level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
@@ -550,7 +573,7 @@
                     "name": "Advanced Classes",
                     "description": "Practical aikido training for real-world self-defense. Weapons defense, multiple attacker scenarios, and pressure-tested techniques that work against any opponent.",
                     "provider": {
-                        "@type": "MartialArtsSchool",
+                        "@type": "SportsActivityLocation",
                         "name": "Sarpy Aikido",
                         "address": {
                             "@type": "PostalAddress",
@@ -584,7 +607,7 @@
                     "name": "Fundamentals Classes",
                     "description": "Beginner-friendly practical self-defense training. Essential movements, core techniques, and skills you can use immediately. No experience required.",
                     "provider": {
-                        "@type": "MartialArtsSchool",
+                        "@type": "SportsActivityLocation",
                         "name": "Sarpy Aikido"
                     },
                     "hasCourseInstance": [
@@ -610,7 +633,7 @@
                     "name": "Saturday Open Mats",
                     "description": "Focused drilling, scenario training, and controlled sparring. Test your techniques under pressure with partners of all skill levels.",
                     "provider": {
-                        "@type": "MartialArtsSchool",
+                        "@type": "SportsActivityLocation",
                         "name": "Sarpy Aikido"
                     },
                     "hasCourseInstance": [
@@ -632,7 +655,7 @@
     }
     </script>
 
-    <!-- FAQ Schema for Classes Page -->
+    <!-- FAQ Schema for Classes Page - mirrors the visible FAQ section above -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -640,27 +663,49 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "Do I need martial arts experience to join Aikido classes?",
+                "name": "Do I need martial arts experience to join?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No prior martial arts experience is necessary. Our Fundamentals Classes are specifically designed for beginners and those new to Aikido. We welcome students of all backgrounds and experience levels."
+                    "text": "No prior martial arts experience is necessary. Our Fundamentals Classes are built for beginners and for anyone new to aikido, and we welcome students of every background and experience level."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What should I wear to my first Aikido class?",
+                "name": "What should I wear to my first class?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Wear comfortable, loose-fitting clothing for your first class. As you progress in your training, you will have the option to purchase a traditional gi (uniform)."
+                    "text": "Comfortable, loose-fitting athletic clothing is all you need for your first class. As you progress in your training you will have the option to purchase a traditional gi (uniform)."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What is the class schedule at Sarpy Aikido?",
+                "name": "What is the weekly class schedule?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We offer Fundamentals Classes on Monday and Thursday from 6:00-7:00 PM, Advanced Classes classes on Monday and Thursday from 7:00-8:30 PM, and Saturday Open Mats from 9:00-11:00 AM where any skill level is welcome to practice."
+                    "text": "Fundamentals Classes run Monday and Thursday from 6:00 to 7:00 PM. Advanced Classes run Monday and Thursday from 7:00 to 8:30 PM. Saturday Open Mats run from 9:00 to 11:00 AM and are open to any skill level."
                 }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Structured Data - Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://sarpyaikidomartialarts.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Classes",
+                "item": "https://sarpyaikidomartialarts.com/classes.html"
             }
         ]
     }
