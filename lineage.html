@@ -327,7 +327,10 @@
                         "description": "Founder of Aikido (1883-1969). Known as O-Sensei (Great Teacher), he developed Aikido as a martial art focused on harmony and neutralizing aggression.",
                         "birthDate": "1883",
                         "deathDate": "1969",
-                        "nationality": "Japanese",
+                        "nationality": {
+                            "@type": "Country",
+                            "name": "Japan"
+                        },
                         "knowsAbout": ["Aikido", "Martial Arts", "Budo"]
                     }
                 },
@@ -357,11 +360,6 @@
                         "affiliation": {
                             "@type": "Organization",
                             "name": "Aikikai Foundation"
-                        },
-                        "founder": {
-                            "@type": "Organization",
-                            "name": "Aikido of Hawaii International",
-                            "foundingDate": "1963"
                         }
                     }
                 },
@@ -376,8 +374,9 @@
                             "@type": "Organization",
                             "name": "Aikido of Hawaii International"
                         },
-                        "founder": {
-                            "@type": "SportsActivityLocation",
+                        "affiliation": {
+                            "@type": ["SportsActivityLocation", "EducationalOrganization"],
+                            "@id": "https://sarpyaikidomartialarts.com/#dojo",
                             "name": "Sarpy Aikido",
                             "foundingDate": "1998",
                             "address": {
@@ -398,7 +397,8 @@
                         "jobTitle": "Head Instructor",
                         "description": "Current Head Instructor of Sarpy Aikido since 2020. Continues the legacy of his father and the authentic Aikido lineage in La Vista, Nebraska.",
                         "worksFor": {
-                            "@type": "SportsActivityLocation",
+                            "@type": ["SportsActivityLocation", "EducationalOrganization"],
+                            "@id": "https://sarpyaikidomartialarts.com/#dojo",
                             "name": "Sarpy Aikido"
                         },
                         "memberOf": {
